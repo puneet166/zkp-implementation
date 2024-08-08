@@ -68,6 +68,9 @@ Generate Keys
 ```
 npx snarkjs groth16 setup circuit.r1cs powersOfTau28_hez_final_12.ptau circuit_0000.zkey
 ```
+circuit_0000.zkey is a binary file that contains the proving and verification keys.
+
+
 ## Step 2: Generate the Proof
 
 Create index.js:
@@ -90,10 +93,18 @@ generateProof().then(() => {
 });
 ```
 Generate the Verification Key
+* Proof(π) is successfully generated and now we need to generate the verification key from the proving key(circuit_0000.zkey).
+
+Proving key is like private key and verification key is like public key(In context of assymetric key cryptography)
 ```
 npx snarkjs zkey export verificationkey circuit_0000.zkey verification_key.json
 ```
 ## Step 3: Verify the Proof
+* Verifying the Proof(π) which is generated in step 2.
+
+Note: We can write code to verify the proof on a normal backend or we can also do on-chain verification with the help of smart contract.
+
+let's create web2 backend verification system first.
 
 Create verify.js:
 

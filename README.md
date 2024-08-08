@@ -114,3 +114,4 @@ Verification OK
 ```
 🎉 Congratulations! You've completed all three steps!
 
+https://dev.to/yagnadeepxo/the-beginners-guide-to-zk-snark-setting-up-your-first-proof-system-3le3

@@ -6,7 +6,7 @@ This guide will walk you through setting up a non-interactive zero-knowledge pro
 1. Generate the proving and verification keys.
 2. Generate the proof.
 3. Verify the proof.
-https://res.cloudinary.com/practicaldev/image/fetch/s--IAz6JB7w--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/aoasgise8c4gjjf4q5ch.png
+
 ---
 
 ## Step 1: Generate the Proving and Verification Keys

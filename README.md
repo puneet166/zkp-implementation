@@ -20,6 +20,10 @@ This guide will walk you through setting up a non-interactive zero-knowledge pro
 npm init -y
 npm install circomlib@2.0.5 
 
+* A circuit in zero-knowledge proof is a program that specifies a calculation to be performed on some data inputs. The circuit is used by the prover to generate a proof that they have correctly performed the calculation, without revealing any information about the data inputs. The verifier can then use the proof to confirm that the computation was performed correctly, without learning anything about the data inputs.
+
+These circuits can be complex made of logic gates like (AND, OR) but fortunately we have a programming language called CIRCOM which is DSL(Domain specific language) used to create aritmetic circuits.
+
 ## Write the Circuit
 Create circuit.circom:
 
@@ -39,11 +43,22 @@ template Hasher(){
 
 component main = Hasher();
 ```
+* The program defines a template called "Hasher" which takes an input signal called "secret" and outputs a signal called "out". It uses a component called "Pedersen" which is included from the circomlib library, and sets it up to use 1 input.
+The code then connects the "secret" input to the first input of the "Pedersen" component, and the output of the "Pedersen" component to the "out" output of the template.
+Finally, the program defines a component called "main" which is an instance of the "Hasher" template.
+Overall, this program creates a circuit that takes a secret input, hashes it using the Pedersen hashing function, and outputs the resulting hash.
+
 Compile the Circuit
 
 ```
 circom circuit.circom --r1cs --wasm
 ```
+* after compiling we get 2 files(circuit.r1cs, circuit.wasm). r1cs(rank 1 constraint system), In simple terms, it is a way to express any computation as a set of linear equations that satisfy certain constraints. These constraints can be thought of as rules that define the inputs and outputs of the computation. We also get a wasm binary(web assembly).
+
+Now one part of step one is completed i.e we have a circuit and now we need a secret value(λ).
+This secret value is generated with the help of a ceremony called as trusted setup.
+
+Trusted setup is a process used in some zero knowledge proof systems to generate the initial proving and verifying keys required for generating and verifying proofs. The purpose of trusted setup is to establish a secure foundation for the system by generating these keys in a way that ensures they are unpredictable and unbiased. This is typically done by having a group of trusted individuals generate the keys together, with each individual contributing a piece of random data. Once all the pieces are combined and processed using cryptographic techniques, the resulting keys can be used to generate and verify proofs without the need for any additional trust assumptions. The goal of trusted setup is to ensure that the system is secure and trustworthy, even if some of the participants in the trusted setup process are malicious.
 Generate the Secret Value (λ)
 ```
 wget https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_12.ptau

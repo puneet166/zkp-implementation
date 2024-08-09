@@ -140,4 +140,5 @@ Verification OK
 ```
 🎉 Congratulations! You've completed all three steps!
 
-https://dev.to/yagnadeepxo/the-beginners-guide-to-zk-snark-setting-up-your-first-proof-system-3le3
+Ref1- https://dev.to/yagnadeepxo/the-beginners-guide-to-zk-snark-setting-up-your-first-proof-system-3le3
+Ref2- https://levelup.gitconnected.com/implementing-decentralised-identity-with-zk-snarks-68f9fca32c47

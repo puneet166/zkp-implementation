@@ -3,7 +3,7 @@ const fs = require("fs");
 
 async function verify(){
 const { proof, publicSignals } = await snarkjs.groth16.fullProve(
-    { secret: 12345 }, 
+    { secret: 12345 }, //this is the data , proof is generated for this data 
     "circuit_js/circuit.wasm", 
     "circuit_0000.zkey");
 
